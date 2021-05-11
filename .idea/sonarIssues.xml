@@ -13,6 +13,11 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/../iotmaker.docker.builder/typeContainerBuilder.go">
+          <value>
+            <set />
+          </value>
+        </entry>
       </map>
     </option>
   </component>

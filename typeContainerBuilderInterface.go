@@ -25,6 +25,7 @@ type ContainerBuilderInterface interface {
 	WaitFortextInContainerLog(value string) (dockerLogs string, err error)
 	ImageBuildFromFolder() (err error)
 	ContainerBuildFromImage() (err error)
+	FindTextInsideContainerLog(value string) (contains bool, err error)
 	GetContainerLog() (log []byte, err error)
 	ContainerStart() (err error)
 	ContainerStop() (err error)

@@ -3,7 +3,7 @@ package iotmaker_docker_builder_interface
 import (
 	"github.com/docker/go-connections/nat"
 	network "github.com/helmutkemper/iotmaker.docker.builder.network.interface"
-	docker "github.com/helmutkemper/iotmaker.docker/v1.0.1"
+	iotmakerdocker "github.com/helmutkemper/iotmaker.docker/v1.0.1"
 	"time"
 )
 
@@ -19,7 +19,7 @@ type ContainerBuilderInterface interface {
 	SetGitCloneToBuildWithPrivateToken(url, privateToken string)
 	RemoveAllByNameContains(value string) (err error)
 	GetIdByContainerName() (err error)
-	ContainerInspect() (inspect docker.ContainerInspect, err error)
+	ContainerInspect() (inspect iotmakerdocker.ContainerInspect, err error)
 	ImageRemove() (err error)
 	ContainerRemove(removeVolumes bool) (err error)
 	ContainerStop() (err error)
@@ -32,7 +32,7 @@ type ContainerBuilderInterface interface {
 	ImageBuildFromFolder() (err error)
 	WaitForTextInContainerLog(value string) (dockerLogs string, err error)
 	ImagePull() (err error)
-	GetChannelEvent() (channel *chan docker.ContainerPullStatusSendToChannel)
+	GetChannelEvent() (channel *chan iotmakerdocker.ContainerPullStatusSendToChannel)
 	GetChannelOnContainerInspect() (channel *chan bool)
 	GetChannelOnContainerReady() (channel *chan bool)
 	Init() (err error)
@@ -50,7 +50,7 @@ type ContainerBuilderInterface interface {
 	SetBuildFolderPath(value string)
 	GetLastLogs() (logs string)
 	GetImageID() (ID string)
-	GetLastInspect() (inspect docker.ContainerInspect)
+	GetLastInspect() (inspect iotmakerdocker.ContainerInspect)
 	GetContainerID() (ID string)
 	AddFiileOrFolderToLinkBetweenConputerHostAndContainer(computerHostPath, insideContainerPath string) (err error)
 	ImageRemoveByName(name string) (err error)
